@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Userinfo extends StatefulWidget {
@@ -9,169 +10,141 @@ class Userinfo extends StatefulWidget {
 }
 
 class _UserinfoState extends State<Userinfo> {
+  final List<bool> _selectedgender = <bool>[true, false];
+  int gender = 1;
+
   @override
   Widget build(BuildContext context) {
     return (Scaffold(
+      backgroundColor: Color.fromARGB(255, 200, 164, 212),
       body: Center(
         child: Container(
-          decoration: BoxDecoration(color: Colors.red),
+          width: MediaQuery.of(context).size.width - 50,
+          //decoration: BoxDecoration(color: Colors.red),
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
           child: Column(
             children: [
-              Text('Personal Info'),
-              SizedBox(
-                width: 250,
-                height: 50,
-                child: TextField(
-                  textAlign: TextAlign.center,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    hoverColor: Colors.blue,
-                    //floatingLabelBehavior: FloatingLabelBehavior.auto,
-                    filled: true,
-                    //suffixIcon: Icon(Icons.person),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    hintText: 'Name',
-                    labelStyle: TextStyle(
-                        color: Colors.grey,
+              Container(
+                width: 300,
+                height: 60,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Color.fromARGB(255, 100, 59, 159)),
+                child: Column(children: [
+                  Text(
+                    'Sign up',
+                    style: TextStyle(
+                        fontSize: 35,
                         fontWeight: FontWeight.bold,
-                        fontSize: 20),
+                        color: Colors.white),
                   ),
-                ),
+                  Text(
+                    'Create Your Account',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ]),
               ),
-              SizedBox(
-                width: 250,
+              Spacer(),
+              CupertinoFormSection(
+                  //margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  children: [
+                    CupertinoFormRow(
+                      child: CupertinoTextFormFieldRow(
+                        placeholder: "Enter Name",
+                      ),
+                      prefix: Text('Name'),
+                    ),
+                  ]),
+              Spacer(),
+              CupertinoFormSection(
+                  //margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  children: [
+                    CupertinoFormRow(
+                      child: CupertinoTextFormFieldRow(
+                        placeholder: "Enter Age",
+                      ),
+                      prefix: Text('Age'),
+                    ),
+                  ]),
+              Spacer(),
+              CupertinoFormSection(
+                  //margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  children: [
+                    CupertinoFormRow(
+                      child: CupertinoTextFormFieldRow(
+                        placeholder: "Enter Height",
+                      ),
+                      prefix: Text('Height'),
+                    ),
+                  ]),
+              Spacer(),
+              CupertinoFormSection(
+                  //margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  children: [
+                    CupertinoFormRow(
+                      child: CupertinoTextFormFieldRow(
+                        placeholder: "Enter Weight",
+                      ),
+                      prefix: Text('Weight'),
+                    ),
+                  ]),
+              Spacer(),
+              CupertinoFormSection(
+                  //margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  children: [
+                    CupertinoFormRow(
+                      child: CupertinoTextFormFieldRow(
+                        placeholder: "Eg : Student",
+                      ),
+                      prefix: Text('Career'),
+                    ),
+                  ]),
+              Spacer(),
+              CupertinoFormSection(
+                  //margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  children: [
+                    CupertinoFormRow(
+                      child: CupertinoTextFormFieldRow(
+                        placeholder: "Eg: 9-5",
+                      ),
+                      prefix: Text('Busy Hours'),
+                    ),
+                  ]),
+              Spacer(),
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 100, 59, 159),
+                ),
+                alignment: Alignment.center,
                 height: 50,
-                child: TextField(
-                  textAlign: TextAlign.center,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    hoverColor: Colors.blue,
-                    //floatingLabelBehavior: FloatingLabelBehavior.auto,
-                    filled: true,
-                    //suffixIcon: Icon(Icons.person),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    hintText: 'Gender',
-                    labelStyle: TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  ),
-                ),
+                width: MediaQuery.of(context).size.width,
+                //decoration: BoxDecoration(color: Colors.blue),
+                child: ToggleButtons(
+                    disabledColor: Colors.white,
+                    selectedColor: Colors.white,
+                    // selectedBorderColor: Colors.white,
+                    fillColor: Color.fromARGB(255, 200, 164, 218),
+                    children: [
+                      Container(
+                          width: (MediaQuery.of(context).size.width) / 3 + 28,
+                          //decoration: BoxDecoration(color: Colors.yellow),
+                          child: Icon(Icons.male)),
+                      Container(
+                          width: (MediaQuery.of(context).size.width) / 3 + 29,
+                          //decoration: BoxDecoration(color: Colors.red),
+                          child: Icon(Icons.female)),
+                    ],
+                    isSelected: _selectedgender,
+                    onPressed: (int index) {
+                      setState(() {
+                        // The button that is tapped is set to true, and the others to false.
+                        for (int i = 0; i < _selectedgender.length; i++) {
+                          _selectedgender[i] = i == index;
+                        }
+                      });
+                    }),
               ),
-              SizedBox(
-                width: 250,
-                height: 50,
-                child: TextField(
-                  textAlign: TextAlign.center,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    hoverColor: Colors.blue,
-                    //floatingLabelBehavior: FloatingLabelBehavior.auto,
-                    filled: true,
-                    //suffixIcon: Icon(Icons.person),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    hintText: 'Age',
-                    labelStyle: TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 250,
-                height: 50,
-                child: TextField(
-                  textAlign: TextAlign.center,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    hoverColor: Colors.blue,
-                    //floatingLabelBehavior: FloatingLabelBehavior.auto,
-                    filled: true,
-                    //suffixIcon: Icon(Icons.person),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    hintText: 'Weight',
-                    labelStyle: TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 250,
-                height: 50,
-                child: TextField(
-                  textAlign: TextAlign.center,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    hoverColor: Colors.blue,
-                    //floatingLabelBehavior: FloatingLabelBehavior.auto,
-                    filled: true,
-                    //suffixIcon: Icon(Icons.person),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    hintText: 'Profile',
-                    labelStyle: TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 250,
-                height: 50,
-                child: TextField(
-                  textAlign: TextAlign.center,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    hoverColor: Colors.blue,
-                    //floatingLabelBehavior: FloatingLabelBehavior.auto,
-                    filled: true,
-                    //suffixIcon: Icon(Icons.person),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    hintText: 'Height',
-                    labelStyle: TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 250,
-                height: 50,
-                child: TextField(
-                  textAlign: TextAlign.center,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    hoverColor: Colors.blue,
-                    //floatingLabelBehavior: FloatingLabelBehavior.auto,
-                    filled: true,
-                    //suffixIcon: Icon(Icons.person),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    hintText: 'Avg. Sleep',
-                    labelStyle: TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  ),
-                ),
-              ),
+              Spacer(),
               ElevatedButton(
                 onPressed: (() {
                   Navigator.pushNamed(context, 'home');
@@ -181,6 +154,7 @@ class _UserinfoState extends State<Userinfo> {
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.normal),
                 ),
                 style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(255, 121, 86, 149),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(60)),
                     minimumSize: Size(250, 50)),

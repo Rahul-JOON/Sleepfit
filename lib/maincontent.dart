@@ -13,6 +13,7 @@ class _MaincontentState extends State<Maincontent> {
   @override
   Widget build(BuildContext context) {
     return (Scaffold(
+      backgroundColor: Colors.transparent,
       body: Column(
         children: [
           Container(
@@ -100,10 +101,13 @@ class _MaincontentState extends State<Maincontent> {
           SizedBox(
             height: 20,
           ),
-          Icon(
-            Icons.add_circle,
-            size: 50,
-          ),
+          IconButton(
+              padding: EdgeInsets.all(0),
+              onPressed: () {},
+              icon: Icon(
+                Icons.add_circle,
+                size: 50,
+              ))
         ],
       ),
     ));

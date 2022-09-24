@@ -12,6 +12,7 @@ class _NUlandingpageState extends State<NUlandingpage> {
   @override
   Widget build(BuildContext context) {
     return (Scaffold(
+      backgroundColor: Color.fromARGB(255, 121, 86, 149),
       body: Column(
         children: [
           Container(
@@ -20,7 +21,7 @@ class _NUlandingpageState extends State<NUlandingpage> {
             padding: EdgeInsets.only(top: 300, left: 20),
             child: Text(
               "Hi\nI'm your personal\nSleep Companion",
-              style: TextStyle(fontSize: 30),
+              style: TextStyle(fontSize: 35, color: Colors.white),
             ),
           ),
           Container(
@@ -28,7 +29,9 @@ class _NUlandingpageState extends State<NUlandingpage> {
             //decoration: BoxDecoration(color: Colors.yellow),
             padding: EdgeInsets.only(left: 20, top: 10),
             child: Text(
-                "In order to provide tailored sleep advice\nI need to get some basic information. And I'll\nkeep this a secret."),
+              "In order to provide tailored sleep advice\nI need to get some basic information. And I'll\nkeep this a secret.",
+              style: TextStyle(color: Colors.grey.shade400, fontSize: 18),
+            ),
           ),
           SizedBox(
             height: 250,
@@ -42,6 +45,7 @@ class _NUlandingpageState extends State<NUlandingpage> {
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.normal),
             ),
             style: ElevatedButton.styleFrom(
+                primary: Color.fromARGB(255, 200, 164, 212),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(60)),
                 minimumSize: Size(250, 50)),
