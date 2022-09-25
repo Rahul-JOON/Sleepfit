@@ -3,6 +3,8 @@ An app project for USS ACM Internal Hackathon with functionality being to help t
 
 ## Hackathon Log - 
 ## 25-09-2022
+### 11 : 59
+Firebase connectivity has been established but it can only write for now.
 ### 03:11
 A responsive UI of sleepfit is ready! Just need to add the relevant backend now.
 ## 24-09-2022
