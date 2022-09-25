@@ -16,6 +16,7 @@ class _profileState extends State<profile> {
   @override
   Widget build(BuildContext context) {
     return (Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.transparent,
       body: Center(
         child: Container(

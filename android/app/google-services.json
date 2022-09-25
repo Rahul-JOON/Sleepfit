@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "945832737008",
+    "project_id": "sleepfit-e77c7",
+    "storage_bucket": "sleepfit-e77c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945832737008:android:f8cc1006d7c2404fafea35",
+        "android_client_info": {
+          "package_name": "com.example.sleepfit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945832737008-u4ok0rvdi66sd3300gvb3p5kjl238bvk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9SHeln3_3XcKi5fqkbsxpmShjBzBBCeY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945832737008-u4ok0rvdi66sd3300gvb3p5kjl238bvk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

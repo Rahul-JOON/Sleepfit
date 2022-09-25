@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,12 +11,27 @@ class Userinfo extends StatefulWidget {
 }
 
 class _UserinfoState extends State<Userinfo> {
+  String name = '';
+  String age = '';
+  String height = '';
+  String weight = '';
+  String career = '';
+  String busyhours = '';
+
   final List<bool> _selectedgender = <bool>[true, false];
   int gender = 1;
+
+  CollectionReference BUD =
+      FirebaseFirestore.instance.collection('BasicUserdata');
+
+  // final BUD = FirebaseFirestore.instance.collection('BasicUserdata').withConverter<BasicUserdata>(
+  //     fromFirestore: (snapshots, _) => Movie.fromJson(snapshots.data()!),
+  //     toFirestore: (movie, _) => movie.toJson());
 
   @override
   Widget build(BuildContext context) {
     return (Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromARGB(255, 200, 164, 212),
       body: Center(
         child: Container(
@@ -50,6 +66,7 @@ class _UserinfoState extends State<Userinfo> {
                   children: [
                     CupertinoFormRow(
                       child: CupertinoTextFormFieldRow(
+                        onChanged: ((value) => name = value),
                         placeholder: "Enter Name",
                       ),
                       prefix: Text('Name'),
@@ -61,6 +78,7 @@ class _UserinfoState extends State<Userinfo> {
                   children: [
                     CupertinoFormRow(
                       child: CupertinoTextFormFieldRow(
+                        onChanged: (value) => {age = value},
                         placeholder: "Enter Age",
                       ),
                       prefix: Text('Age'),
@@ -72,7 +90,8 @@ class _UserinfoState extends State<Userinfo> {
                   children: [
                     CupertinoFormRow(
                       child: CupertinoTextFormFieldRow(
-                        placeholder: "Enter Height",
+                        onChanged: (value) => {height = value},
+                        placeholder: "Eg: 167(in cm)",
                       ),
                       prefix: Text('Height'),
                     ),
@@ -83,7 +102,8 @@ class _UserinfoState extends State<Userinfo> {
                   children: [
                     CupertinoFormRow(
                       child: CupertinoTextFormFieldRow(
-                        placeholder: "Enter Weight",
+                        onChanged: (value) => {weight = value},
+                        placeholder: "Eg: 69(in kg)",
                       ),
                       prefix: Text('Weight'),
                     ),
@@ -94,6 +114,7 @@ class _UserinfoState extends State<Userinfo> {
                   children: [
                     CupertinoFormRow(
                       child: CupertinoTextFormFieldRow(
+                        onChanged: (value) => {career = value},
                         placeholder: "Eg : Student",
                       ),
                       prefix: Text('Career'),
@@ -105,6 +126,7 @@ class _UserinfoState extends State<Userinfo> {
                   children: [
                     CupertinoFormRow(
                       child: CupertinoTextFormFieldRow(
+                        onChanged: (value) => {busyhours = value},
                         placeholder: "Eg: 9-5",
                       ),
                       prefix: Text('Busy Hours'),
@@ -146,7 +168,16 @@ class _UserinfoState extends State<Userinfo> {
               ),
               Spacer(),
               ElevatedButton(
-                onPressed: (() {
+                onPressed: (() async {
+                  await BUD.doc('mypage').set({
+                    "name": name,
+                    "age": age,
+                    "height": height,
+                    "weight": weight,
+                    "career": career,
+                    "busyhours": busyhours,
+                    "gender": gender,
+                  });
                   Navigator.pushNamed(context, 'home');
                 }),
                 child: Text(
